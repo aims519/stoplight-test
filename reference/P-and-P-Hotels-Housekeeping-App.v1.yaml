@@ -3,7 +3,8 @@ info:
   title: P and P Hotels - Housekeeping App
   version: '1.0'
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'http://localhost:3000/api/v1'
+    description: pandp-housekeepingapp-v1
 paths:
   /publicrole/authmodule/login:
     post:
@@ -59,7 +60,43 @@ paths:
                   user_code: user@email.com
                   user_pin: '1234'
         description: ''
+      description: |-
+        Log in a user.
+
+        Possible list of values returned for messageCode :
+        Required: Need to supply a value
+
+        Login_Status: Invalid => entered credentials are invalid
+
+        Login_Status: Suppressed => User account is suppressed
+  /roomattendantrole/cleaningmodule/list:
+    get:
+      summary: List
+      tags:
+        - CleaningModule
+        - RoomAttendantRole
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./common/models/BaseResponse.v1.yaml
+              examples:
+                OK: {}
+                Error: {}
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-roomattendantrole-cleaningmodule-list
+      description: List of all cleaning endpoints
+      parameters: []
+      security:
+        - Bearer Auth: []
 components:
   schemas: {}
-  securitySchemes: {}
-security: []
+  securitySchemes:
+    Bearer Auth:
+      type: http
+      scheme: bearer
