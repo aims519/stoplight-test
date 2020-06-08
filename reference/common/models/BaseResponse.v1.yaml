@@ -15,6 +15,8 @@ x-examples:
         message_code: 'Login_Status: Invalid'
     details: {}
 description: ''
+x-tags:
+  - Common
 properties:
   id:
     type: integer
@@ -35,5 +37,3 @@ properties:
       $ref: ''
   details:
     type: object
-x-tags:
-  - Common

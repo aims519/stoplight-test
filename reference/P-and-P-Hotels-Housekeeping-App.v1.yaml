@@ -19,7 +19,26 @@ paths:
             application/json:
               schema:
                 $ref: ./common/models/BaseResponse.v1.yaml
-              examples: {}
+              examples:
+                OK:
+                  value:
+                    id: 1000
+                    status: '1'
+                    errors: []
+                    details:
+                      access_token: '3rewteerserxhdsthstdy.asezasertsr.a35w345436!esszgknzleskg_90'
+                      refresh_token: 123434346eye5
+                      expiry_time_seconds: 3200
+                Error:
+                  value:
+                    id: 0
+                    status: '0'
+                    errors:
+                      - field_name: user_code
+                        message_code: 'Login_Status: Invalid'
+                      - field_name: user_pin
+                        message_code: Required
+                    details: null
       operationId: post-publicrole-authmodule-login
       requestBody:
         content:
@@ -35,9 +54,10 @@ paths:
                 - user_code
                 - user_pin
             examples:
-              example-1:
+              Valid:
                 value:
                   user_code: user@email.com
+                  user_pin: '1234'
         description: ''
 components:
   schemas: {}
