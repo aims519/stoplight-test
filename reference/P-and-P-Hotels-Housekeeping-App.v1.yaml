@@ -4,7 +4,41 @@ info:
   version: '1.0'
 servers:
   - url: 'http://localhost:3000'
-paths: {}
+paths:
+  /publicrole/authmodule/login:
+    post:
+      summary: Login
+      tags:
+        - PublicRole
+        - AuthModule
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: ./common/models/BaseResponse.v1.yaml
+              examples: {}
+      operationId: post-publicrole-authmodule-login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_code:
+                  type: string
+                user_pin:
+                  type: string
+              required:
+                - user_code
+                - user_pin
+            examples:
+              example-1:
+                value:
+                  user_code: user@email.com
+        description: ''
 components:
   schemas: {}
   securitySchemes: {}
