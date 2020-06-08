@@ -1,0 +1,10 @@
+title: ErrorResult
+type: object
+properties:
+  field_name:
+    type: string
+  message_code:
+    type: string
+required:
+  - field_name
+  - message_code
