@@ -14,7 +14,7 @@ x-examples:
       - field_name: user_code
         message_code: 'Login_Status: Invalid'
     details: {}
-description: ''
+description: Base reponse for all endpoints
 x-tags:
   - Common
 properties:
@@ -33,6 +33,7 @@ properties:
     description: 'Returns "1" on success, and "0" on error'
   errors:
     type: array
+    uniqueItems: true
     items:
       $ref: ''
   details:

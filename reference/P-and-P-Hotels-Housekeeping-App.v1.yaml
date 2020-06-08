@@ -10,8 +10,8 @@ paths:
     post:
       summary: Login
       tags:
-        - PublicRole
         - AuthModule
+        - PublicRole
       responses:
         '200':
           description: OK
