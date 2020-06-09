@@ -4,8 +4,8 @@ info:
   version: '1.0'
   description: Backend APIs for Room Attendant app
 servers:
-  - url: 'http://localhost:3000/api/v1'
-    description: pandp-housekeepingapp-v1
+  - url: 'https://pandp-housekeepingapp-v1.api.avamae.co.uk/api/v1'
+    description: Housekeeping App
 paths:
   /publicrole/authmodule/login:
     post:
