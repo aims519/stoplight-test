@@ -7,7 +7,7 @@ servers:
   - url: 'https://pandp-housekeepingapp-v1.api.avamae.co.uk/api/v1'
     description: RoomAttendant
 paths:
-  roomattendantrole/cleaningmodule/list:
+  /roomattendantrole/cleaningmodule/list:
     get:
       summary: List
       tags:
