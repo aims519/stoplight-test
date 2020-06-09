@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: Cleaning Module
+  version: '1.0'
+  description: Backend APIs for Room Attendant app
+servers:
+  - url: 'https://pandp-housekeepingapp-v1.api.avamae.co.uk/api/v1'
+    description: RoomAttendant
+paths:
+  roomattendantrole/cleaningmodule/list:
+    get:
+      summary: List
+      tags:
+        - CleaningModule
+        - RoomAttendantRole
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./common/models/BaseResponse.v1.yaml
+              examples:
+                OK: {}
+                Error: {}
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-roomattendantrole-cleaningmodule-list
+      description: List of all cleaning endpoints
+      parameters: []
+      security:
+        - Bearer Auth: []
+    parameters: []
+components:
+  schemas: {}
+  securitySchemes:
+    Bearer Auth:
+      type: http
+      scheme: bearer

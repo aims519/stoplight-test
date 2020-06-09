@@ -1,11 +1,11 @@
 openapi: 3.0.0
 info:
-  title: P and P Hotels - Housekeeping App
+  title: Auth Module
   version: '1.0'
   description: Backend APIs for Room Attendant app
 servers:
   - url: 'https://pandp-housekeepingapp-v1.api.avamae.co.uk/api/v1'
-    description: Housekeeping App
+    description: Public
 paths:
   /publicrole/authmodule/login:
     post:
@@ -58,11 +58,18 @@ paths:
           application/json:
             schema:
               type: object
+              minProperties: 2
+              maxProperties: 2
               properties:
                 user_code:
                   type: string
+                  example: andrew.savory@avamae.co.uk
                 user_pin:
                   type: string
+                  pattern: '^[0-9]+$'
+                  maxLength: 4
+                  minLength: 4
+                  example: '7894'
               required:
                 - user_code
                 - user_pin
@@ -81,31 +88,7 @@ paths:
         Login_Status: Invalid => entered credentials are invalid
 
         Login_Status: Suppressed => User account is suppressed
-  /roomattendantrole/cleaningmodule/list:
-    get:
-      summary: List
-      tags:
-        - CleaningModule
-        - RoomAttendantRole
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: ./common/models/BaseResponse.v1.yaml
-              examples:
-                OK: {}
-                Error: {}
-            application/xml:
-              schema:
-                type: object
-                properties: {}
-      operationId: get-roomattendantrole-cleaningmodule-list
-      description: List of all cleaning endpoints
-      parameters: []
-      security:
-        - Bearer Auth: []
+    parameters: []
 components:
   schemas: {}
   securitySchemes:
